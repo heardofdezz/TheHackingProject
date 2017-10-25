@@ -1,0 +1,8 @@
+<h1>PUBLICATIONS du cher Anonyme: <%= @gossip.anonymous_author%></h1>
+<%= @gossip.content  %>
+
+
+
+
+<%= link_to 'Edit', edit_gossip_path(@gossip) %> |
+<%= link_to 'Back', gossips_path %>

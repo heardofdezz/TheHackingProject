@@ -1,0 +1,12 @@
+<h1>LACHE TON GOSSIPS MOUSAILLON!!! </h1>
+
+<%= form_tag (gossips_path) do %>
+
+  <%= label_tag 'Anonyme', 'Gossiper Anonyme' %>
+  <%= text_field_tag 'anonymous_author' %>
+
+  <%= label_tag 'text', 'Gossip' %>
+  <%= text_area_tag 'content' %>
+
+  <%= submit_tag "Publiez votre gossips :)"%>
+<% end %>
