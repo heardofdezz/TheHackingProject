@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FormulaireStylay</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <div class="">
+    <header>
+        <p>Already have an Intuit account?</p>
+        <p>I forgot my User ID or Password</p>
+        <a href="" class="button createAccount">Sign In</a>
+    </header>
+  </div>
+
+
+  <body>
+    <%= yield %>
+  </body>
+  <footer>
+    <a href="#">Intuit</a> <br>
+    <a href="#">Legal</a> <a href="#">Privacy</a> <a href="#">Secuty</a>
+    <p>© 2017 Intuit, Inc. All rights reserved. Intuit, QuickBooks, QB, TurboTax, ProConnect and Mint are registered trademarks of Intuit
+      <br> Inc.<br>
+        Terms and conditions, features, support, pricing, and service options subject to change without notice.</p>
+  </footer>
+</html>
