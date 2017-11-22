@@ -1,0 +1,56 @@
+body{
+	font-family: "Roboto",Arial, sans-serif;
+}
+.calc-wrapper{
+	border: 1px solid #D7D7D7;
+	margin: 0 auto;
+	width: 200px;
+	box-shadow: 3px 4px 4px #888888;
+}
+
+.screen{
+	background-color: #E7E7E7; 
+	color: black;
+	text-align: right;
+	padding: 0 5px;
+}
+.header{
+	font-size: 16px;
+	height: 25px;
+	text-align: center;
+	font-weight: 700;
+}
+.screen-top{
+	display: block;
+	height: 30px;
+	font-size: 16px;
+	line-height: 30px;
+	background-color: white;
+}
+
+.screen-bot{
+	display: block;
+	height: 30px;
+	font-size: 28px;
+	line-height: 30px;
+	font-weight: 600;
+	background-color: white;
+}
+
+.row{
+	display: table;
+}
+.row>div{
+	display: table-cell;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #E7E7E7;
+}
+
+.row>div:hover{
+	cursor: pointer;
+	background-color: #D7D7D7;
+	transition: all 0.2s ease;
+}
