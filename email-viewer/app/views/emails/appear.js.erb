@@ -1,0 +1,16 @@
+var div;
+ div = $("#<%=@idDiv%>")
+ tr = $("#<%=@idTr%>")
+
+//Make div appear or disappear
+if (div.css('display') == "none") {
+        div.slideDown(350);
+} else {
+        div.slideUp(350);
+}
+alert(<%=@email.read%>);
+//Change css if an email has been read
+if (<%= @email.read %> == false) {
+        <%= @email.read = true %>;
+        tr.removeClass("unread")
+    } 
