@@ -1,0 +1,90 @@
+<% content_for :top_content do %>
+
+<% if !(mousaillon_signed_in?) %>
+
+<div class="jumbotron">
+    <div class="container">
+      <h1>You need to register first in order to see the gossips</h1>
+    </div>
+  </div>
+
+
+<% else mousaillon_signed_in? %>
+<div class="jumbotron">
+    <div class="container">
+      <h1>Welcome to the Gossip App!</h1>
+    </div>
+  </div>
+<% end %>
+<% end %>
+
+<% if mousaillon_signed_in? %>
+<div class="row"> 
+  <div class="col-md-1">
+<%= image_tag("fire.png", :alt => "rss feed", :size => '40x40') %> </div>
+<div class="col-md-3">
+  <h2> Trending gossips </h2> </div>
+
+</div>
+
+<div class="panel-group">
+    <% @trending_gossips.each do |tg| %>
+    <div class="panel panel-danger">
+        <div class="panel-heading"> <%= tg.number_likes %> Likes - <%= tg.title %> - Written by <%=tg.mousaillon.name%></div>
+        <div class="panel-body"><%=tg.content%></div>
+    </div>
+    <% end %>
+</div>
+
+
+
+
+</br>
+<h2> All the gossips there is </h2>
+  <div class="container">
+    <div class="row">
+  <div class="center-block">
+  <table class="table table-striped table-hover">
+    <tbody>
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Creator</th>
+        <th>Creation date</th>
+        <th>Number of likes</th>
+        <th>Like</th>
+    </tr>
+    <% @gossips.each do |g|%>
+    <tr>
+        <td> <%= g.title %> </td>
+        <td> <%= g.content %> </td>
+        <td> <%= g.mousaillon.name %> </td>
+        <td> <%= g.created_at.strftime("At %H:%M on %d/%m/%Y") %> </td>
+        <td> <%= g.number_likes %> </td>
+        
+        <% if g.likers.include?(current_mousaillon) %>
+            <td> <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up"></span> </a>
+                         </td>
+        <% else %>
+            <td> 
+                <%= link_to raw("<i class=\"glyphicon glyphicon-thumbs-up\"></i>"), like_gossip_path(g), method: :post, class: "btn btn-success" %>
+                         </td>
+        <% end %>
+
+         
+         <td> <%= link_to 'Show', g, class: "btn btn-lg btn-info" %> </td> 
+         
+
+         <% if current_mousaillon == g.mousaillon%>
+            <td> <%= link_to 'Delete', g, method: :delete, class: "btn btn-lg btn-danger" %> </td> 
+         <% end %>
+           
+    </tr>
+    <% end %>
+    </tbody>
+    </table>
+  </div>
+   </div>
+  </div>
+
+<% end %>
